@@ -2,7 +2,10 @@ FROM ghcr.io/open-webui/open-webui:main
 
 USER root
 
-RUN chmod -R 777 /app
+ENV DATA_DIR=/tmp/data
+ENV HOME=/tmp
+
+RUN mkdir -p /tmp/data && chmod 777 /tmp/data
 
 USER 10014
 
